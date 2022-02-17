@@ -20,7 +20,7 @@ class Ticket(models.Model):
     modified = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return "{} - {}".format(self.title, self.ticket_id)
+        return "{}".format(self.title)
 
     class Meta:
         ordering = ["-created"]
