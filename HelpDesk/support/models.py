@@ -8,14 +8,13 @@ from django.contrib.auth.models import User
 class Ticket(models.Model):
     STATUS = (
         ('open', 'open'),
-        ('closed', 'closed'),
-        ('at_work', 'at_work')
+        ('closed', 'closed')
     )
     title = models.CharField(max_length=255)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
     category = models.ForeignKey("Category", on_delete=models.CASCADE)
-    ticket_id = models.CharField(max_length=255, blank=True)
+    answer = models.TextField(default='')
     created = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=7, choices=STATUS, default='open')
     modified = models.DateTimeField(auto_now_add=True)
